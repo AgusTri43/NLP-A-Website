@@ -23,3 +23,11 @@ Setelah virtual environment aktif, instal dependensi dari `requirements.txt` den
 
 ```bash
 pip install -r requirements.txt
+ ```
+
+### Menjalankan Website
+
+Setelah berhasil menginstall dependesi dari `requirements.txt`, jalankan website dengan perintahh
+```bash
+flask run
+```
