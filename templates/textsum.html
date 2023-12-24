@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NLP A</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- FILE SAVER -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
+
+    <!-- JS PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
+
+    <!-- MYSCRIPT -->
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename = 'myscript.js') }}"
+    ></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark justify-content-start">
+        <a class="navbar-brand text-light ml-10" href="/">NLP-A</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon text-light"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link text-light" href="/sentimen">Sentiment Analysis</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="/textsum">Text Summarization</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="#">NLP 3</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h2 class="text-center mt-5">Text Summarization</h2>
+        <br />
+        <div class="row">
+            <!-- Input Teks -->
+            <div class="col-md-6">
+                <form action="/predict1" method="post">
+                    <textarea
+                        class="form-control"
+                        rows="15"
+                        id="text"
+                        name="text_input"
+                        style="width: 90%;"
+                        placeholder="Masukan Teks..."
+                    >{{ text_input }}</textarea>
+                    <br />
+                    <label for="percentage">Persentase Teks yang Ingin diringkas (0-100):</label>
+                    <input
+                        type="number"
+                        id="percentage"
+                        name="percentage"
+                        min="1"
+                        max="100"
+                        required
+                    /><br /><br />
+                    <button type="submit" class="btn btn-warning">Ringkas Teks</button>
+                </form>
+            </div>
+            <!-- Output Ringkasan -->
+            <div class="col-md-6">
+                <textarea
+                    class="form-control"
+                    rows="15"
+                    id="summary"
+                    style="width: 90%;"
+                    placeholder="Hasil ringkasan akan muncul di sini..."
+                >{{ summary }}</textarea>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
